@@ -51,12 +51,9 @@ class BlogController extends Controller
                     'created_at' => Carbon::now(),
                 ]);
 
-                $notification = array(
-                    'message' => 'Blog Eklendi',
-                    'alert-type' => 'success'
-                );
 
-                return redirect()->back()->with($notification);
+
+                return redirect()->back()->with('success', 'İşlem başarılı!');
             } else {
                 $image = $request->file('photo');
                 $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
@@ -74,12 +71,9 @@ class BlogController extends Controller
                     'created_at' => Carbon::now(),
                 ]);
 
-                $notification = array(
-                    'message' => 'Blog Eklendi',
-                    'alert-type' => 'success'
-                );
 
-                return redirect()->back()->with($notification);
+
+                return redirect()->back()->with('success', 'İşlem başarılı!');
             }
         } else {
 
@@ -94,12 +88,9 @@ class BlogController extends Controller
                     'created_at' => Carbon::now(),
                 ]);
 
-                $notification = array(
-                    'message' => 'Blog Eklendi',
-                    'alert-type' => 'success'
-                );
 
-                return redirect()->back()->with($notification);
+
+                return redirect()->back()->with('success', 'İşlem başarılı!');
             } else {
                 Blog::insert([
 
@@ -110,12 +101,8 @@ class BlogController extends Controller
                     'created_at' => Carbon::now(),
                 ]);
 
-                $notification = array(
-                    'message' => 'Blog Eklendi',
-                    'alert-type' => 'success'
-                );
 
-                return redirect()->back()->with($notification);
+                return redirect()->back()->with('success', 'İşlem başarılı!');
             }
         }
     }

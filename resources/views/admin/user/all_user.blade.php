@@ -92,7 +92,7 @@
                                                                         title="Active Now"></i></a>
                                                             @endif
 
-                                                            <a href="" id="delete">
+                                                            <a href="{{ route('delete.user', $user->id) }}" id="delete">
                                                                 <button class="btn btn-danger btn-sm">
                                                                     <i class="fa fa-trash"></i>
                                                                 </button>

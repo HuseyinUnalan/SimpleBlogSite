@@ -1,5 +1,10 @@
 @extends('frontend.main_master')
 @section('content')
+    @if (session('success'))
+        <div class="alert alert-success">
+            <strong>Success!</strong> {{ session('success') }}
+        </div>
+    @endif
     <div class="container mt-5" style="margin-bottom: 150px">
         <h2>Profil Güncelle</h2>
         <br>

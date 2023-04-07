@@ -23,7 +23,7 @@
 
 <body>
 
-   
+
 
 
     <!-- Header Section Start  -->
@@ -33,7 +33,7 @@
     @yield('content')
 
     <!-- Footer Section Start -->
-   @include('frontend.body.footer')
+    @include('frontend.body.footer')
     <!-- Footer Section End -->
 
     <!-- Scorll Button Start -->
@@ -50,7 +50,29 @@
     <script type="module">
         import { Fancybox } from "{{ asset('frontend/js/fancybox.esm.js') }}";
     </script>
+    <script>
+        @if (Session::has('message'))
+            var type = "{{ Session::get('alert-type', 'info') }}"
+            switch (type) {
+                case 'info':
+                    toastr.info(" {{ Session::get('message') }} ");
+                    break;
 
+                case 'success':
+                    toastr.success(" {{ Session::get('message') }} ");
+                    break;
+
+                case 'warning':
+                    toastr.warning(" {{ Session::get('message') }} ");
+                    break;
+
+                case 'error':
+                    toastr.error(" {{ Session::get('message') }} ");
+                    break;
+            }
+        @endif
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>
 

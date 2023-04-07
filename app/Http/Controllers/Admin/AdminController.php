@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
+use App\Models\Likes;
 use App\Models\Reviews;
 use App\Models\User;
 use Carbon\Carbon;
@@ -21,6 +22,21 @@ class AdminController extends Controller
     {
         $users = User::where('role', 1)->orderBy('created_at', 'ASC')->get();
         return view('admin.user.all_user', compact('users'));
+    }
+
+    public function DeleteUser($id)
+    {
+
+        User::findOrFail($id)->delete();
+        Blog::where('user_id', $id)->delete();
+        Likes::where('user_id', $id)->delete();
+        Reviews::where('user_id', $id)->delete();
+        $notification = array(
+            'message' => 'Kullanıcı Slindi.',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
     }
 
     public function UserInactive($id)
@@ -217,7 +233,7 @@ class AdminController extends Controller
 
     public function DeleteReview($id)
     {
-        
+
         Reviews::findOrFail($id)->delete();
 
         $notification = array(

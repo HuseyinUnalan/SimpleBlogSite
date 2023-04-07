@@ -32,11 +32,8 @@ class ReviewsController extends Controller
             'created_at' => Carbon::now(),
         ]);
 
-        $notification = array(
-            'message' => 'Yorumunuz Başarı İle Eklendi.',
-            'alert-type' => 'success'
-        );
-        return redirect()->back()->with($notification);
+       
+        return redirect()->back()->with('success', 'İşlem başarılı!');
     }
 
     public function LikeBlog(Request $request)
@@ -50,18 +47,10 @@ class ReviewsController extends Controller
                 'user_id' => Auth::id(),
                 'created_at' => Carbon::now(),
             ]);
-
-            $notification = array(
-                'message' => 'Blog Beğenildi.',
-                'alert-type' => 'success'
-            );
-            return redirect()->back()->with($notification);
+           
+            return redirect()->back()->with('success', 'İşlem başarılı!');
         } else {
-            $notification = array(
-                'message' => 'Blog Daha Önce Beğenilmiş.',
-                'alert-type' => 'success'
-            );
-            return redirect()->back()->with($notification);
+            return redirect()->back()->with('info', 'Daha Önce Beğenilmiş.');
         }
     }
 }

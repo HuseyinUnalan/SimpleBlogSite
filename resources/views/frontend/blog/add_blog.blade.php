@@ -1,5 +1,12 @@
 @extends('frontend.main_master')
 @section('content')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    @if (session('success'))
+        <div class="alert alert-success">
+            <strong>Success!</strong> {{ session('success') }}
+        </div>
+    @endif
     <div class="container mt-5" style="margin-bottom: 75px">
         <h2>Blog Ekle</h2>
         <br>
@@ -8,9 +15,14 @@
 
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
 
+
+            <div class="form-group">
+                <img id="showImage" class="rounded avatar-xl" style="width: 200px; height: auto;">
+            </div>
+
             <div class="form-group">
                 <label for="photo">Fotoğraf (Zorunlu Değil):</label>
-                <input type="file" class="form-control" placeholder="Fotoğraf" name="photo">
+                <input type="file" id="image" class="form-control" placeholder="Fotoğraf" name="photo">
             </div>
 
             <div class="form-group">
@@ -44,4 +56,17 @@
         </form>
     </div>
     <br>
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#image').change(function(e) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#showImage').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(e.target.files['0']);
+            });
+        });
+    </script>
 @endsection

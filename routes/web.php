@@ -68,6 +68,7 @@ Route::middleware(['can:admin'])->group(function () {
         Route::get('/all/user', [AdminController::class, 'AllUser'])->name('all.user');
         Route::get('/user/inactive/{id}', [AdminController::class, 'UserInactive'])->name('user.inactive');
         Route::get('/user/active/{id}', [AdminController::class, 'UserActive'])->name('user.active');
+        Route::get('/delete/user/{id}', [AdminController::class, 'DeleteUser'])->name('delete.user');
 
         Route::get('/all/blog', [AdminController::class, 'AllBlog'])->name('admin.all.blog');
         Route::get('edit/blog/{id}', [AdminController::class, 'EditBlog'])->name('admin.edit.blog');

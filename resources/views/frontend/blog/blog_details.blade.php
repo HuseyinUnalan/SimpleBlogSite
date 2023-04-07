@@ -11,7 +11,15 @@
             ->get();
         
     @endphp
-
+    @if (session('success'))
+        <div class="alert alert-success">
+            <strong>Success!</strong> {{ session('success') }}
+        </div>
+    @elseif(session('info'))
+        <div class="alert alert-info">
+            <strong>İnfo!</strong> {{ session('info') }}
+        </div>
+    @endif
 
     <!-- Container Start -->
     <div class="container">
