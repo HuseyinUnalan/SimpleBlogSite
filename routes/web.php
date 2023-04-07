@@ -64,9 +64,18 @@ Route::middleware(['can:admin'])->group(function () {
 
     Route::prefix('admin')->group(function () {
         Route::get('/dashboard', [AdminController::class, 'Index'])->name('admin.dashboard');
+
         Route::get('/all/user', [AdminController::class, 'AllUser'])->name('all.user');
         Route::get('/user/inactive/{id}', [AdminController::class, 'UserInactive'])->name('user.inactive');
         Route::get('/user/active/{id}', [AdminController::class, 'UserActive'])->name('user.active');
+
+        Route::get('/all/blog', [AdminController::class, 'AllBlog'])->name('admin.all.blog');
+        Route::get('edit/blog/{id}', [AdminController::class, 'EditBlog'])->name('admin.edit.blog');
+        Route::post('update/blog', [AdminController::class, 'UpdateBlog'])->name('admin.update.blog');
+        Route::get('delete/blog/{id}', [AdminController::class, 'DeleteBlog'])->name('admin.delete.blog');
+        Route::get('blog/inactive/{id}', [AdminController::class, 'BlogInactive'])->name('admin.blog.inactive');
+        Route::get('blog/active/{id}', [AdminController::class, 'BlogActive'])->name('admin.blog.active');
+
     });
 });
 
