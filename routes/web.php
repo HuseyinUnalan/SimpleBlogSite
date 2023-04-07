@@ -54,6 +54,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/blog/detail/{id}', [BlogController::class, 'BlogDetails'])->name('blog.detail');
 
         Route::post('/review/store', [ReviewsController::class, 'ReviewStore'])->name('review.store');
+
+        Route::post('/like/blog', [ReviewsController::class, 'LikeBlog'])->name('like.blog');
     });
 });
 
