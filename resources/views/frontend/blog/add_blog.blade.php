@@ -3,7 +3,7 @@
     <div class="container mt-5" style="margin-bottom: 75px">
         <h2>Blog Ekle</h2>
         <br>
-        <form method="POST" action="{{ route('blog.store') }}">
+        <form method="POST" action="{{ route('blog.store') }}" enctype="multipart/form-data">
             @csrf
 
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
@@ -32,7 +32,7 @@
 
             <div class="form-group">
                 <label for="date">Yayınlanma Tarihi (İsteğe Bağlı Boş Bırakılırsa Direkt Yayına Alınır):</label>
-                <input type="text" class="form-control" placeholder="Yayınlanma Tarihi (İsteğe Bağlı)" name="date">
+                <input type="date" class="form-control" placeholder="Yayınlanma Tarihi (İsteğe Bağlı)" name="date">
                 @if ($errors->has('date'))
                     <span class="text-danger">{{ $errors->first('date') }}</span>
                 @endif

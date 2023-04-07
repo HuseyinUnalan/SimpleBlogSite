@@ -11,7 +11,7 @@
                      <h5> Anasayfa / </h5>
                  </a>
                  @auth
-                     <a href="">
+                     <a href="{{ route('all.blog') }}">
                          <h5> Bloglar / </h5>
                      </a>
 
