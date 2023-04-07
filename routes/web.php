@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Frontend\BlogController;
 use App\Http\Controllers\Frontend\IndexController;
+use App\Http\Controllers\Frontend\ReviewsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,6 +52,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/all/blog', [BlogController::class, 'AllBlog'])->name('all.blog');
 
         Route::get('/blog/detail/{id}', [BlogController::class, 'BlogDetails'])->name('blog.detail');
+
+        Route::post('/review/store', [ReviewsController::class, 'ReviewStore'])->name('review.store');
     });
 });
 
