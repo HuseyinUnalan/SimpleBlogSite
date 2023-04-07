@@ -10,7 +10,7 @@ Admin paneli yetkilisine üyelerin ekledikleri blogları düzenleme, silme, akti
 Bir üye silindiğinde onunla beraber blogları, yorumları ve beğenileri de siliniyor.</p>
 
 <br>
-
+[[![Watch the video](https://img.youtube.com/vi/T-D1KVIuvjA/maxresdefault.jpg)](https://youtu.be/T-D1KVIuvjA)](https://github.com/HuseyinUnalan/videos/blob/main/blogsitevideo.webm)
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
