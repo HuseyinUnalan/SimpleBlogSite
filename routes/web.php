@@ -76,6 +76,12 @@ Route::middleware(['can:admin'])->group(function () {
         Route::get('blog/inactive/{id}', [AdminController::class, 'BlogInactive'])->name('admin.blog.inactive');
         Route::get('blog/active/{id}', [AdminController::class, 'BlogActive'])->name('admin.blog.active');
 
+        Route::get('/all/review', [AdminController::class, 'AllReview'])->name('admin.all.reviews');
+        Route::get('edit/review/{id}', [AdminController::class, 'EditReview'])->name('admin.edit.review');
+        Route::post('update/review', [AdminController::class, 'UpdateReview'])->name('admin.update.review');
+        Route::get('delete/review/{id}', [AdminController::class, 'DeleteReview'])->name('admin.delete.review');
+        Route::get('review/inactive/{id}', [AdminController::class, 'ReviewInactive'])->name('admin.review.inactive');
+        Route::get('review/active/{id}', [AdminController::class, 'ReviewActive'])->name('admin.review.active');
     });
 });
 

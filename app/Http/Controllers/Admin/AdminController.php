@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
+use App\Models\Reviews;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -35,6 +36,8 @@ class AdminController extends Controller
 
         return redirect()->back();
     }
+
+    // Start Blog
 
     public function AllBlog()
     {
@@ -178,4 +181,72 @@ class AdminController extends Controller
         );
         return redirect()->back()->with($notification);
     }
+
+    // End Blog
+
+    // Start Blog
+
+    public function AllReview()
+    {
+        $reviews = Reviews::all();
+        return view('admin.reviews.all_reviews', compact('reviews'));
+    }
+
+    public function EditReview($id)
+    {
+        $reviews = Reviews::findOrFail($id);
+        return view('admin.reviews.edit_reviews', compact('reviews'));
+    }
+
+
+    public function UpdateReview(Request $request)
+    {
+        $review_id = $request->id;
+
+        Reviews::findOrFail($review_id)->update([
+            'comment' => $request->comment,
+        ]);
+
+        $notification = array(
+            'message' => 'Yorum Güncellendi.',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
+
+    public function DeleteReview($id)
+    {
+        
+        Reviews::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Yorum Slindi.',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
+
+    public function ReviewInactive($id)
+    {
+        Reviews::findOrFail($id)->update(['status' => 0]);
+        $notification = array(
+            'message' => 'Yorum Pasif Edildi.',
+            'alert-type' => 'info'
+        );
+        return redirect()->back()->with($notification);
+    }
+
+    public function ReviewActive($id)
+    {
+        Reviews::findOrFail($id)->update(['status' => 1]);
+        $notification = array(
+            'message' => 'Yorum Aktif Edildi.',
+            'alert-type' => 'info'
+        );
+        return redirect()->back()->with($notification);
+    }
+
+    // End Blog
 }
