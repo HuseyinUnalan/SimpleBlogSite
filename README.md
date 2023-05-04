@@ -1,13 +1,13 @@
-<p align="center">Proje Adı: Basit Bir Blog Uygulaması</p>
+<p align="center">Project Name: Simple Blog Site</p>
 
 <p align="center">
-Proje Açıklaması: Bu proje, basit bir blog uygulaması geliştirmenizi gerektirir. Kullanıcıların kaydolabileceği, giriş yapabileceği ve blog yazıları oluşturabileceği bir web sitesi oluşturmanız gerekiyor. Ayrıca, kullanıcıların diğer kullanıcıların blog yazılarını beğenip yorum yapabileceği bir yorum sistemi de eklemeniz gerekiyor.
+Project Description: This project requires you to develop a simple blog application. You need to create a website where users can sign up, log in and create blog posts. You also need to add a comment system where users can like and comment on other users' blog posts.
     </p>
 <p align="center">
-Proje Yapılanlar: Projeyi Laravel, MySQL, HTML, CSS, Bootstrap 4 kullanarak yaptım.
-Projede kayıt olma, giriş yapma, profil güncelleme, şifre değiştirme, blog ekleme, yorum yapma, blog beğenme işlemlerini ekledim. Blogları sadece kayıtlı üyeler ekleyebilir ve görebilirler. Kullanıcılar arası rol eklendi bu sayede belli kullanıcılar admin paneline erişim imkanı sağlandı. Bloglar eklendikleri tarih sırasına göre listelendi.
-Admin paneli yetkilisine üyelerin ekledikleri blogları düzenleme, silme, aktif-pasif hale getirme ve eklenen yorumları düzenleme, silme, aktif-pasif hale getirme yetkileri verildi.
-Bir üye silindiğinde onunla beraber blogları, yorumları ve beğenileri de siliniyor.</p>
+Project Done: I built the project using Laravel, MySQL, HTML, CSS, Bootstrap 4.
+In the project, I added registration, login, profile update, password change, blogging, commenting, blog liking. Only registered members can add and view blogs. A cross-user role has been added, so that certain users can access the admin panel. Blogs are listed in the order they were added.
+Admin panel authority has been given the authority to edit, delete, activate-deactivate and edit, delete, activate-deactivate the added comments of the blogs added by the members.
+When a member is deleted, their blog, comments and likes are also deleted.</p>
 
 <br>
 
